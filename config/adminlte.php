@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Audit</b>/ Accg',
+    'logo_img' => 'vendor/adminlte/dist/img/Mani.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Mani Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/Mani.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/Mani.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -318,20 +318,14 @@ return [
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
-        // ['header' => 'account_settings'],
-        [
-            'text' => 'fights',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
         [
             'text' => 'Deposits',
-            'url'  => 'admin/settings',
+            'url'  => 'deposit',
             'icon' => 'fa-solid fa-coins',
         ],
         [
             'text' => 'Withdraws',
-            'url'  => 'admin/settings',
+            'url'  => 'withdraw',
             'icon' => 'fa-solid fa-hand-holding-dollar',
         ],
         [

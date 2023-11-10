@@ -14,14 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', [HomeController::class, 'dashboard'])->name('home');
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+
+    // Bet
+    Route::get('/summary-bet/filter-date', [HomeController::class, 'getBetSummaryByDate']);
+
+    // Trans
+    Route::get('/deposit', [HomeController::class, 'deposit']);
+    Route::get('/deposit/data', [HomeController::class, 'getDepositData']);
+    Route::get('/withdraw', [HomeController::class, 'withdraw']);
+    Route::get('/withdraw/data', [HomeController::class, 'getWithdrawData']);
 });

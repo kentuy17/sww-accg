@@ -12,7 +12,8 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
-        "sebastienheyd/boilerplate": "^7.24"
+        "sebastienheyd/boilerplate": "^7.24",
+        "yajra/laravel-datatables-buttons": "^9.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
