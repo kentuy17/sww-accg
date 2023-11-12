@@ -101,7 +101,10 @@
           "processing": true,
           "serverSide": true,
           "pageLength": 15,
-          "lengthMenu": [15, 25, 50, -1],
+          "lengthMenu": [
+            [15, 25, 50, -1],
+            [15, 25, 50, 'ALL'],
+          ],
           "ajax": {
             "type": "GET",
             "url": "/summary-bet/filter-date",
