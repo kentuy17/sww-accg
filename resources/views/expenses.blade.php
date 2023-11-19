@@ -82,12 +82,18 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="attachment" class="col-sm-3 col-form-label">Attachment</label>
+                <label class="col-sm-3 col-form-label">Attachment</label>
                 <div class="input-group col-sm-9">
                   <div class="custom-file">
-                    <input class="custom-file-input" name="attachment" type="file" id="attachment" onchange="updateValue(this)">
+                    <input class="custom-file-input" style="cursor: pointer;" name="attachment" type="file" id="attachment" onchange="updateValue(this)">
                     <label class="custom-file-label" id="attachment-label" for="attachment">Choose file</label>
                   </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="note" class="col-sm-3 col-form-label">Note</label>
+                <div class="col-sm-9">
+                  <textarea name="note" class="form-control" style="font-style: italic;" rows="3" placeholder="Enter ..."></textarea>
                 </div>
               </div>
             </div>
