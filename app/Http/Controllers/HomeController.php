@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\DerbyEvent;
+use App\Models\Expenses;
 use App\Models\Fight;
 use App\Models\User;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
 class HomeController extends Controller
@@ -98,5 +101,65 @@ class HomeController extends Controller
             ->addIndexColumn()
             ->with('pending_count', $trans->where('status', 'pending')->count())
             ->toJson();
+    }
+
+    public function expenses()
+    {
+        return view('expenses');
+    }
+
+    public function getExpensesData(Request $request)
+    {
+        // if (!$request->posting_date) {
+        //     return DataTables::of([])
+        //         ->addIndexColumn()
+        //         ->make(true);
+        // }
+
+        $expenses = Expenses::with('user')
+            // ->where('post_date', $request->posting_date)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return DataTables::of($expenses)
+            ->addIndexColumn()
+            ->toJson();
+    }
+
+    public function addExpenses(Request $request)
+    {
+        $file = $request->file('attachment');
+        if ($file && $file->getSize() < 1000) {
+            // return response()->json([
+            //     'message' => 'Invalid attachment',
+            //     'status' => 'error'
+            // ], 400);
+            return redirect()->back()->with('error', 'Invalid attachment');
+        }
+
+        if ($file) {
+            $imageName = time() . '.' . $request->attachment->extension();
+            $path = 'public/' . $imageName;
+            Storage::disk('local')->put($path, file_get_contents($request->attachment));
+        }
+
+        // dd($request->all());
+
+        // $post_date = Carbon::createFromFormat('d/m/Y', $request->posting_date);
+        $post_date = date('Y-m-d', strtotime($request->posting_date));
+
+        Expenses::create([
+            'added_by' => Auth::user()->id,
+            'name' => $request->name,
+            'amount' => $request->amount,
+            'attachment' => $imageName ?? '',
+            'post_date' => $post_date,
+            'note' => $request->note,
+        ]);
+
+        // return response()->json([
+        //     'data' => $request->all(),
+        // ]);
+        return redirect()->back()->with('success', 'Record added successfully');
     }
 }

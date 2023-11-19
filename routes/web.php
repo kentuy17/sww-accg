@@ -34,4 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/deposit/data', [HomeController::class, 'getDepositData']);
     Route::get('/withdraw', [HomeController::class, 'withdraw']);
     Route::get('/withdraw/data', [HomeController::class, 'getWithdrawData']);
+    Route::get('/expenses', [HomeController::class, 'expenses']);
+    Route::get('/expenses/data', [HomeController::class, 'getExpensesData']);
+
+    Route::post('/expenses/add', [HomeController::class, 'addExpenses']);
 });

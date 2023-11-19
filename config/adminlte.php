@@ -329,6 +329,11 @@ return [
             'icon' => 'fa-solid fa-hand-holding-dollar',
         ],
         [
+            'text' => 'Expenses',
+            'url'  => 'expenses',
+            'icon' => 'fa-solid fa-calculator',
+        ],
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
