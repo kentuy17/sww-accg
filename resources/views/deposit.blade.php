@@ -139,7 +139,7 @@
           },
 
           {
-            data: "created_at",
+            data: "updated_at",
           },
           {
             data: null,
