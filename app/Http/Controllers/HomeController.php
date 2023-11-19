@@ -122,6 +122,7 @@ class HomeController extends Controller
             ->get();
 
         return DataTables::of($expenses)
+            ->with('auditor', Auth::user()->email)
             ->addIndexColumn()
             ->toJson();
     }

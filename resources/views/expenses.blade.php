@@ -238,48 +238,10 @@
             },
           },
         ],
-        createdRow: function(row, data, dataIndex) {
-          // // $(row).find("td").eq(0).attr("style", "color: transparent !important");
-          // $(row).attr("data-id", data.id);
-
-          // if (data.status == `pending`) {
-          //   $(row).css({
-          //     "background-color": "var(--bs-red)"
-          //   });
-          //   wPending++;
-
-          //   let timeDiff = moment(data.created_at, "MM-DD-YYYY hh:mm:ss").fromNow();
-          //   $(row).find("td").eq(6).text(timeDiff);
-          // }
-
-          // if (data.reference_code == null && data.status == "completed") {
-          //   $(row).addClass("bg-warning");
-          //   unverified++;
-          // }
-
-          // if (data.status == `failed`) {
-          //   $(row).addClass("failed");
-          // }
-
-          // if (wPending > 0) {
-          //   $("#badge-withdraw").show().text(wPending);
-          // } else {
-          //   $("#badge-withdraw").hide().text(wPending);
-          // }
-
-          // if (unverified > 0) {
-          //   $("#badge-withdraw-unverified").show().text(unverified);
-          // } else {
-          //   $("#badge-withdraw-unverified").hide().text(unverified);
-          // }
-        },
         drawCallback: function(settings) {
-          // let response = settings.json;
-          // if (response.pending_count > 0) {
-          //   $("#badge-withdraw").show().text(response.pending_count);
-          // } else {
-          //   $("#badge-withdraw").hide().text(response.pending_count);
-          // }
+          if (settings.json.auditor == 'tas@audit.com') {
+            $('.dt-button').prop('disabled', true).addClass('disabled');
+          }
         },
       });
 
@@ -592,7 +554,6 @@
     function updateValue(e) {
       let file = e.files[0]
       if (file) {
-        console.log(e.files[0]);
         $('#attachment-label').text(file.name);
       }
     }
