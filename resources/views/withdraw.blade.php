@@ -142,7 +142,7 @@
           },
 
           {
-            data: "created_at",
+            data: "completed_at",
           },
           {
             data: null,

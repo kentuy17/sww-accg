@@ -110,14 +110,7 @@ class HomeController extends Controller
 
     public function getExpensesData(Request $request)
     {
-        // if (!$request->posting_date) {
-        //     return DataTables::of([])
-        //         ->addIndexColumn()
-        //         ->make(true);
-        // }
-
         $expenses = Expenses::with('user')
-            // ->where('post_date', $request->posting_date)
             ->orderBy('created_at', 'desc')
             ->get();
 
