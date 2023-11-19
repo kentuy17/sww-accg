@@ -2,12 +2,12 @@
 
 @section('title', 'Bets - Audit')
 
-@section('content_header')
+{{-- @section('content_header')
   <h2>Bets</h2>
-@stop
+@stop --}}
 
 @section('content')
-  <div class="col-lg-6 m-auto">
+  <div class="col-lg-6 m-auto" style="margin-top: 10px !important;">
     <div class="card card-info">
       <div class="card-header">
         <h3 class="card-title">EVENT DATE</h3>
@@ -30,7 +30,7 @@
 
   {{-- TABLE --}}
   <div class="row col-md-12 justify-content-center">
-    <div class="card">
+    <div class="card col-md-12">
       <div class="card-body">
         <table class="table table-striped w-100" id="bet-summary-table">
           <thead>
