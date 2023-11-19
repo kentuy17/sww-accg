@@ -139,7 +139,7 @@
           },
 
           {
-            data: "updated_at",
+            data: "completed_at",
           },
           {
             data: null,
