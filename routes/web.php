@@ -38,4 +38,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/expenses/data', [HomeController::class, 'getExpensesData']);
 
     Route::post('/expenses/add', [HomeController::class, 'addExpenses']);
+
+    Route::get('/logout', [HomeController::class, 'logout']);
 });

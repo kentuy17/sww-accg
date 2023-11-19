@@ -371,6 +371,13 @@ return [
                 ],
             ],
         ],
+        [
+            'text'       => 'Logout',
+            'url'        => 'logout',
+            'icon'       => 'fa-solid fa-sign-out',
+            'label_color' => 'danger',
+            // 'onclick'   => 'event.preventDefault()\; document.getElementById(\'logout-form\').submit()',
+        ],
         // ['header' => 'labels'],
         // [
         //     'text'       => 'important',

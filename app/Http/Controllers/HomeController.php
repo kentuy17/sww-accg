@@ -163,4 +163,10 @@ class HomeController extends Controller
         // ]);
         return redirect()->back()->with('success', 'Record added successfully');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }

@@ -216,7 +216,12 @@
           {
             data: null,
             render: (data) => {
-              return data.attachment != '' ? data.attachment : 'N/A';
+              if (data.attachment != '') {
+                return `<a href="/storage/${data.attachment}" download>${data.attachment}</a>`;
+                // window.open(`${data.attachment}`);
+
+              }
+              return "N/A";
             }
           },
 
