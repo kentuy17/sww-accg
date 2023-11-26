@@ -235,7 +235,7 @@
             className: "dt-nowrap",
           },
           {
-            targets: [2],
+            targets: [1],
             className: "dt-body-right",
           },
           {
