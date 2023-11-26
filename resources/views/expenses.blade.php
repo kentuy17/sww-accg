@@ -239,7 +239,7 @@
             className: "dt-body-right",
           },
           {
-            targets: [1, 3, 4, 5],
+            targets: [3, 4, 5],
             className: "dt-body-center",
           },
           {
