@@ -173,7 +173,7 @@
           [15, 25, 50, 'ALL'],
         ],
         order: [
-          [6, "DESC"]
+          [5, "DESC"]
         ],
         pagingType: "numbers",
         language: {
@@ -198,7 +198,7 @@
             className: "dt-body-center",
           },
           {
-            targets: [1, 2, 3, 4, 5, 6, 7],
+            targets: [1, 2, 3, 4, 5],
             className: "dt-head-center",
           },
         ],
