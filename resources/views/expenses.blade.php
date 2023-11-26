@@ -32,7 +32,6 @@
               <th>Attachment</th>
               <th>Account Type</th>
               <th>Posting Date</th>
-              <th>Date Added</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -236,10 +235,6 @@
           },
           {
             data: "post_date"
-          },
-
-          {
-            data: "created_at",
           },
           {
             data: null,
