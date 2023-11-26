@@ -2,6 +2,10 @@
 
 @section('title', 'Expenses - Audit')
 
+@section('css')
+
+@stop
+
 @section('content_header')
   <h2>Expenses</h2>
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
@@ -18,8 +22,44 @@
 @stop
 
 @section('content')
+  <style>
+    .row {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      --bs-gutter-x: 0 !important;
+      --bs-gutter-y: 0 !important;
+    }
+
+    .card-body {
+      padding: 0.5rem !important;
+    }
+
+    .row>*,
+    .container-fluid,
+    .content {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    #withdraw-trans-table_filter {
+      float: right !important;
+    }
+
+    #withdraw-trans-table_wrapper>.row>.col-md-6 {
+      width: 50% !important;
+    }
+
+    .dt-button {
+      margin-left: 10px;
+    }
+
+    table.dataTable th.dt-nowrap,
+    table.dataTable td.dt-nowrap {
+      white-space: nowrap !important;
+    }
+  </style>
   {{-- TABLE --}}
-  <div class="row col-md-12 justify-content-center">
+  <div class="row col-md-12 justify-content-center px-1">
     <div class="card" style="width: 100% !important;">
       <div class="card-body">
         <table class="table dt-responsive table-striped nowrap w-100" id="withdraw-trans-table">
@@ -30,7 +70,7 @@
               <th>Amount</th>
               <th>Note</th>
               <th>Attachment</th>
-              <th>Account Type</th>
+              <th>Type</th>
               <th>Posting Date</th>
               {{-- <th>Action</th> --}}
             </tr>
@@ -117,6 +157,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+
 @stop
 
 @section('js')
@@ -190,6 +231,10 @@
           }
         }],
         columnDefs: [{
+            targets: [-1],
+            className: "dt-nowrap",
+          },
+          {
             targets: [2],
             className: "dt-body-right",
           },
@@ -231,7 +276,10 @@
           },
 
           {
-            data: "account_type"
+            data: null,
+            render: (data) => {
+              return data.account_type.toUpperCase()
+            }
           },
           {
             data: "post_date"
