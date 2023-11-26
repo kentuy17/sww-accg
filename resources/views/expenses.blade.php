@@ -32,7 +32,7 @@
               <th>Attachment</th>
               <th>Account Type</th>
               <th>Posting Date</th>
-              <th>Action</th>
+              {{-- <th>Action</th> --}}
             </tr>
           </thead>
         </table>
@@ -236,13 +236,13 @@
           {
             data: "post_date"
           },
-          {
-            data: null,
-            render: (data) => {
-              return `<a href="javascript:void(0)" data-id="${data.id}" class="btn btn-link text-primary btn-icon btn-sm view">
-          <i class="fa-solid fa-circle-info"></i></a>`;
-            },
-          },
+          // {
+          //   data: null,
+          //   render: (data) => {
+          //     return `<a href="javascript:void(0)" data-id="${data.id}" class="btn btn-link text-primary btn-icon btn-sm view">
+        // <i class="fa-solid fa-circle-info"></i></a>`;
+          //   },
+          // },
         ],
         drawCallback: function(settings) {
           if (settings.json.auditor == 'tas@audit.com') {
